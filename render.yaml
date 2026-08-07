@@ -17,9 +17,9 @@ services:
       - key: GEMINI_API_KEY
         value: "" # Left empty to trigger local simulated medical summary fallback
 
+staticSites:
   # 2. Vite React Dashboard (Static Web Site)
-  - type: static
-    name: helio-client-dashboard
+  - name: helio-client-dashboard
     plan: free
     rootDir: client
     buildCommand: npm install && npm run build
