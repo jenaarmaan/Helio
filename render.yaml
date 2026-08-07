@@ -18,13 +18,12 @@ services:
         value: "" # Left empty to trigger local simulated medical summary fallback
 
   # 2. Vite React Dashboard (Static Web Site)
-  - type: web
+  - type: static
     name: helio-client-dashboard
-    env: static
     plan: free
     rootDir: client
     buildCommand: npm install && npm run build
     publishPath: dist
     envVars:
       - key: VITE_GATEWAY_URL
-        value: https://helio-edge-gateway-api.onrender.com # Will connect to the deployed backend service
+        value: https://helio-edge-gateway-api.onrender.com
