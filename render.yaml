@@ -17,12 +17,12 @@ services:
       - key: GEMINI_API_KEY
         value: ""
 
-staticSites:
   # 2. Vite React Dashboard (Static Web Site)
-  - name: helio-client-dashboard
+  - type: static
+    name: helio-client-dashboard
     rootDir: client
     buildCommand: npm install && npm run build
-    publishPath: dist
+    staticPublishPath: dist
     envVars:
       - key: VITE_GATEWAY_URL
         value: https://helio-edge-gateway-api.onrender.com
