@@ -1,0 +1,16 @@
+{
+  "name": "helio-contracts",
+  "version": "1.0.0",
+  "description": "Smart contracts for Helio AI consent and record integrity registry",
+  "main": "index.js",
+  "scripts": {
+    "test": "hardhat test"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.4"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.1"
+  }
+}
