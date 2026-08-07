@@ -270,3 +270,102 @@ header {
   0%, 80%, 100% { transform: scale(0); }
   40% { transform: scale(1.0); }
 }
+
+/* Landing Page Grid & Cards */
+.grid-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid-features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature-card {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Centered Login forms */
+.login-container {
+  max-width: 450px;
+  margin: 4rem auto;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* System Ops Telemetry layout */
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1200px) {
+  .telemetry-grid {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+}
+
+.code-block {
+  background: #07080c;
+  border: 1px solid var(--border-glass);
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 0.8rem;
+  padding: 1rem;
+  color: #38bdf8;
+  max-height: 400px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  line-height: 1.4;
+}
+
+.terminal-monitor {
+  background: #050608;
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 0.8rem;
+  padding: 1rem;
+  color: var(--accent-green);
+  height: 400px;
+  overflow-y: auto;
+  line-height: 1.5;
+}
+
+.terminal-monitor p {
+  margin-bottom: 0.5rem;
+}
+
+/* Blinking Status LED */
+.status-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: var(--accent-green);
+  box-shadow: 0 0 8px var(--accent-green);
+  animation: led-blink 1s infinite alternate;
+}
+
+@keyframes led-blink {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+.status-led-red {
+  background-color: var(--accent-red);
+  box-shadow: 0 0 8px var(--accent-red);
+}

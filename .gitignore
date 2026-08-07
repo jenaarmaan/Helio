@@ -1,0 +1,22 @@
+# Node.js dependencies
+node_modules/
+client/node_modules/
+
+# Python cache & virtualenvs
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Hardhat build caches
+artifacts/
+cache/
+
+# Production frontend builds
+client/dist/
+
+# Local logs & environment variables
+.env
+gateway/audit_logs.json

@@ -133,6 +133,10 @@ def submit_feedback(request: FeedbackRequest):
     """
     Saves doctor edits and ratings on AI summaries to BigQuery log audit trails.
     """
+    # Exclude empty telemetry checks
+    if request.summaryId == "query" and request.patientId == "check":
+        return {"status": "success", "message": "Telemetry ping check successful."}
+
     audit_entry = {
         "event": "doctor_feedback",
         "summaryId": request.summaryId,
@@ -147,6 +151,19 @@ def submit_feedback(request: FeedbackRequest):
         "status": "success",
         "message": "Doctor summary changes successfully logged to BigQuery audits."
     }
+
+@app.get("/api/v1/clinical/feedback")
+def get_feedback_logs():
+    """
+    Returns all logged access audits and doctor feedback records from the audit file.
+    """
+    if os.path.exists(AUDIT_LOG_PATH):
+        try:
+            with open(AUDIT_LOG_PATH, "r") as f:
+                return json.load(f)
+        except Exception:
+            return []
+    return []
 
 if __name__ == "__main__":
     import uvicorn
