@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: MIT
+services:
+  # 1. Edge Gateway & Swarm Pipeline (Python Web Service)
+  - type: web
+    name: helio-edge-gateway-api
+    env: python
+    plan: free
+    buildCommand: pip install -r gateway/requirements.txt -r swarm/requirements.txt
+    startCommand: python gateway/edge_gateway.py
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: HELIO_CONTRACT_ADDRESS
+        value: "" # Left empty to trigger local simulated blockchain fallback
+      - key: HELIO_BESU_RPC_URL
+        value: ""
+      - key: GEMINI_API_KEY
+        value: "" # Left empty to trigger local simulated medical summary fallback
+
+  # 2. Vite React Dashboard (Static Web Site)
+  - type: web
+    name: helio-client-dashboard
+    env: static
+    plan: free
+    rootDir: client
+    buildCommand: npm install && npm run build
+    publishPath: dist
+    envVars:
+      - key: VITE_GATEWAY_URL
+        value: https://helio-edge-gateway-api.onrender.com # Will connect to the deployed backend service

@@ -13,5 +13,20 @@
     "providerAddress": "0x9876543210abcdef9876543210abcdef98765432",
     "editedSummary": "Verified and modified by Dr. Evelyn Harper: The patient's penicillin allergy is active and lumpectomy follow-up is scheduled.",
     "rating": 5
+  },
+  {
+    "event": "summary_request",
+    "patientId": "patient-123",
+    "providerAddress": "0x9876543210abcdef9876543210abcdef98765432",
+    "consentValidated": true,
+    "status": "allowed"
+  },
+  {
+    "event": "doctor_feedback",
+    "summaryId": "sum-777",
+    "patientId": "patient-123",
+    "providerAddress": "0x9876543210abcdef9876543210abcdef98765432",
+    "editedSummary": "Evelyn Verified: Lumpectomy scheduled.",
+    "rating": 5
   }
 ]
