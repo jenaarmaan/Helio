@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 import React, { useState, useEffect } from 'react';
+import DocumentationViewer from './DocumentationViewer';
 
 const GATEWAY_URL = 'http://127.0.0.1:8080';
 
@@ -687,33 +688,7 @@ export default function App() {
 
       {/* 7. Documentation Section */}
       {currentPage === 'documentation' && (
-        <div className="glass-panel" style={{ minHeight: '600px', padding: '2rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-glass)', paddingBottom: '1rem', marginBottom: '2rem' }}>
-            <div>
-              <h2 className="title-gradient" style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>Documentation Hub</h2>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-                Comprehensive architectural blueprints, API references, security protocols, and operational guides.
-              </p>
-            </div>
-            <span className="badge badge-cyan" style={{ fontSize: '0.85rem', padding: '0.5rem 1rem' }}>v1.0.0 Production Docs</span>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem' }}>
-            <div className="glass-panel" style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '2rem', border: '1px solid var(--border-glass)' }}>
-              <h3 className="section-title title-gradient" style={{ fontSize: '1.4rem', marginBottom: '1rem' }}>
-                📁 Ready for Custom Content
-              </h3>
-              <p style={{ color: 'var(--text-primary)', lineHeight: '1.8', fontSize: '1.05rem', marginBottom: '1.5rem' }}>
-                This section is now live and configured. Tell me what documents, technical specifications, workflows, or guides you would like to include here, and I will format and display them immediately!
-              </p>
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                <span className="badge badge-green">PRD & System Specs</span>
-                <span className="badge badge-cyan">API Reference (/docs)</span>
-                <span className="badge badge-red">Security & HIPAA Whitepaper</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <DocumentationViewer />
       )}
     </div>
   );
